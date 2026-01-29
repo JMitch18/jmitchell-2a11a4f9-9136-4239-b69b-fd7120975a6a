@@ -4,9 +4,12 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@angular-devkit/core": "~21.1.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nx/angular": "^22.4.2",
     "@nx/js": "22.4.2",
+    "@nx/nest": "^22.4.2",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
@@ -17,5 +20,6 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {}
 }
