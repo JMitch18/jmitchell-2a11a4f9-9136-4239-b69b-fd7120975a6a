@@ -71,5 +71,9 @@
       "style": "css",
       "unitTestRunner": "none"
     }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
   }
 }
