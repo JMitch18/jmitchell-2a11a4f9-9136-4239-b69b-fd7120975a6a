@@ -1,1 +1,1 @@
-export * from './lib/auth.js';
+export * from './lib/rbac.js';

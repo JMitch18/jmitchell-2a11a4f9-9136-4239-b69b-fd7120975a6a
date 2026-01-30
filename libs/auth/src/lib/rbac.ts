@@ -1,5 +1,7 @@
 import type { Role } from '@org/data';
 
+export const PERMS_KEY = 'perms';
+
 export type Permission =
   | 'task:read'
   | 'task:create'
@@ -14,6 +16,5 @@ const rolePerms: Record<Role, Permission[]> = {
 };
 
 export function hasPermission(role: Role, perm: Permission): boolean {
-  // role inheritance naturally handled by mapping (OWNER includes everything)
   return rolePerms[role]?.includes(perm) ?? false;
 }
