@@ -15,6 +15,7 @@
     "@nestjs/schematics": "^11.0.0",
     "@nestjs/testing": "^11.0.0",
     "@nx/angular": "^22.4.2",
+    "@nx/esbuild": "22.4.3",
     "@nx/eslint": "22.4.2",
     "@nx/eslint-plugin": "22.4.2",
     "@nx/jest": "22.4.2",
@@ -32,11 +33,13 @@
     "@types/node": "20.19.9",
     "@typescript-eslint/utils": "^8.40.0",
     "angular-eslint": "^21.0.1",
+    "esbuild": "^0.19.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "jest": "^30.0.2",
     "jest-environment-node": "^30.0.2",
     "jest-util": "^30.0.2",
+    "jsonc-eslint-parser": "^2.1.0",
     "nx": "22.4.2",
     "prettier": "^2.6.2",
     "ts-jest": "^29.4.0",
@@ -50,7 +53,9 @@
     "packages/*",
     "apps",
     "apps-e2e",
-    "apps/*"
+    "apps/*",
+    "libs",
+    "libs/*"
   ],
   "dependencies": {
     "@angular/common": "~21.1.0",
