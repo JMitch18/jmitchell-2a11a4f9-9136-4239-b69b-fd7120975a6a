@@ -3,7 +3,7 @@ import { JwtGuard } from '../auth/jwt.guard';
 import { RbacGuard } from '../auth/rbac.guard';
 import { RequirePermissions } from '@org/auth';
 import type { CreateTaskDto, UpdateTaskDto } from '@org/data';
-import { TasksService } from './tasks.service';
+import { TasksService } from './tasks.service.js';
 
 @Controller('tasks')
 @UseGuards(JwtGuard, RbacGuard)
