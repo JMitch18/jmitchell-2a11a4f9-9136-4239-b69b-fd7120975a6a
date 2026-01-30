@@ -2,45 +2,5 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": [
-    {
-      "path": "./apps-e2e"
-    },
-    {
-      "path": "./apps"
-    },
-    {
-      "path": "./apps/api-e2e"
-    },
-    {
-      "path": "./apps/api"
-    },
-    {
-      "path": "./libs"
-    },
-    {
-      "path": "./libs"
-    },
-    {
-      "path": "./libs"
-    },
-    {
-      "path": "./libs"
-    },
-    {
-      "path": "./libs"
-    },
-    {
-      "path": "./libs"
-    },
-    {
-      "path": "./libs"
-    },
-    {
-      "path": "./libs/data"
-    },
-    {
-      "path": "./libs/auth"
-    }
-  ]
+  "references": []
 }
