@@ -2,8 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
   ci:
@@ -13,41 +14,37 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Pin node to match typical CI (Nx + npm-lock behavior is most stable on Node 20)
-      - name: Setup Node
+      - name: Setup Node (match local)
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
-      # Important: make sure CI is using repo-root lockfile (not a subdir)
-      - name: Debug paths + lockfile
+      - name: Ensure npm version matches lockfile
         run: |
-          set -euxo pipefail
-          echo "PWD=$(pwd)"
-          echo "SHA=$(git rev-parse HEAD)"
+          npm i -g npm@11.8.0
           node -v
           npm -v
+
+      - name: Confirm lockfile exists
+        run: |
+          set -euxo pipefail
+          pwd
           ls -la
           test -f package.json
           test -f package-lock.json
-          echo "Root lockfile hash:"
-          sha256sum package-lock.json || shasum -a 256 package-lock.json
 
-      # Fix for your exact error: npm ci complains lockfile not in sync.
-      # This makes CI fail fast if lockfile is missing/changed AND ensures npm cache isn't stale.
-      - name: Clean npm cache (safety)
-        run: npm cache clean --force
-
-      - name: Install
+      - name: Install deps
         run: npm ci
 
-      - name: Nx reset
+      - name: Nx reset 
         run: npx nx reset
 
-      - name: Show projects
-        run: npx nx show projects
+      - name: Lint
+        run: npx nx run-many -t lint --all
 
-      # Optional: build everything (adjust later)
-      - name: Build all
+      - name: Test
+        run: npx nx run-many -t test --all
+
+      - name: Build
         run: npx nx run-many -t build --all
