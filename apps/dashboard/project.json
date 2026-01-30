@@ -2,16 +2,14 @@
   "name": "dashboard",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/dashboard",
   "sourceRoot": "apps/dashboard/src",
-  "prefix": "app",
-  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/dashboard",
+        "index": "apps/dashboard/src/index.html",
         "browser": "apps/dashboard/src/main.ts",
         "tsConfig": "apps/dashboard/tsconfig.app.json",
         "assets": [
@@ -61,15 +59,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
-    },
-    "serve-static": {
-      "continuous": true,
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "dashboard:build",
-        "staticFilePath": "dist/apps/dashboard/browser",
-        "spa": true
-      }
     }
   }
 }
