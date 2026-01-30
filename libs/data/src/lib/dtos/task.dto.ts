@@ -1,4 +1,5 @@
-export type TaskStatus = 'open' | 'done';
+import type { TaskStatus } from '../models.js';
+
 
 export interface TaskDto {
   id: string;
@@ -7,12 +8,12 @@ export interface TaskDto {
   category?: string;
 }
 
-export interface CreateTaskDto {
+export type  CreateTaskDto = {
   title: string;
   category?: string;
 }
 
-export interface UpdateTaskDto {
+export type  UpdateTaskDto = {
   title?: string;
   category?: string;
   status?: TaskStatus;

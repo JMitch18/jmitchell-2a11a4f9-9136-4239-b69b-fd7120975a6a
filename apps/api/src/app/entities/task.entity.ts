@@ -1,19 +1,17 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import type { TaskStatus } from '@org/data';
+// import type { TaskStatus } from '@org/data'; // optional
 
 @Entity()
 export class Task {
-  @PrimaryGeneratedColumn('uuid') id!: string;
-  @Column() title!: string;
-  @Column({ nullable: true }) description?: string;
-  @Column({ nullable: true }) category?: string;
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
 
-  @Column({ default: 'TODO' }) status!: TaskStatus;
-  @Column({ default: 0 }) orderIndex!: number;
+  @Column({ type: 'text' })
+  title!: string;
 
-  @Column() ownerUserId!: string;
-  @Column() orgId!: string;
+  @Column({ type: 'text', default: 'open' })
+  status!: string; 
 
-  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' }) createdAt!: string;
-  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' }) updatedAt!: string;
+  @Column({ type: 'text', nullable: true })
+  category!: string | null;
 }
